@@ -1,40 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="GoORMHelperCache">
+    <option name="schemaMapping">
+      <map>
+        <entry key="AuthService">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/internal/delivery/http/middleware/auth.go" />
+              <option value="file://$PROJECT_DIR$/internal/service/http.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="Config">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/internal/config/config.go" />
+              <option value="file://$PROJECT_DIR$/internal/service/http.go" />
+            </set>
+          </value>
+        </entry>
+        <entry key="req">
+          <value>
+            <set>
+              <option value="file://$PROJECT_DIR$/internal/delivery/http/middleware/auth.go" />
+              <option value="file://$PROJECT_DIR$/internal/service/http.go" />
+            </set>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="scannedPathMapping">
       <map>
         <entry key="file://$PROJECT_DIR$/cmd/sentinel/sentinel.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762383172432" />
+              <option name="lastModified" value="1762383946555" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/internal/config/config.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762383262289" />
+              <option name="lastModified" value="1762383745595" />
+              <option name="schema">
+                <list>
+                  <option value="Config" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/internal/delivery/http/handler.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762383276852" />
+              <option name="lastModified" value="1762383758753" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/internal/delivery/http/middleware/auth.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762383348554" />
+              <option name="lastModified" value="1762383869034" />
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/internal/errors/http.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762383287677" />
+              <option name="lastModified" value="1762384605144" />
             </ScannedPath>
           </value>
         </entry>
@@ -48,17 +81,30 @@
         <entry key="file://$PROJECT_DIR$/internal/service/http.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762383303910" />
+              <option name="lastModified" value="1762383893658" />
+              <option name="schema">
+                <list>
+                  <option value="AuthService" />
+                  <option value="req" />
+                </list>
+              </option>
             </ScannedPath>
           </value>
         </entry>
         <entry key="file://$PROJECT_DIR$/internal/util/util.go">
           <value>
             <ScannedPath>
-              <option name="lastModified" value="1762383317249" />
+              <option name="lastModified" value="1762383821505" />
             </ScannedPath>
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="tableStructMapping">
+      <map>
+        <entry key="auth_service" value="AuthService" />
+        <entry key="config" value="Config" />
+        <entry key="req" value="req" />
       </map>
     </option>
     <option name="lastTimeChecked" value="1762382914742" />

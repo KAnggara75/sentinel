@@ -13,4 +13,22 @@
  * https://github.com/KAnggara75/sentinel/tree/main/backend/cmd/sentinel
  */
 
-package sentinel
+package main
+
+import (
+	"log/slog"
+
+	"github.com/KAnggara75/sentinel/backend/internal/config"
+	"github.com/KAnggara75/sentinel/backend/internal/delivery/http"
+)
+
+func main() {
+	cfg := config.Load()
+
+	app := http.NewServer(cfg)
+
+	slog.Info("starting sentinel service", "port", cfg.Port)
+	if err := app.Listen(":" + cfg.Port); err != nil {
+		slog.Error("failed to start server", "error", err)
+	}
+}

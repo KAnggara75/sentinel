@@ -16,10 +16,9 @@ repos:
       - id: go-imports-repo
         args:
           - "-local"
-          - "github.com/PakaiWA/PakaiWA"
+          - "github.com/KAnggara75/sentinel"
           - "-w"
       - id: go-vet-repo-mod
-      # TODO enable this
       #- id: go-staticcheck-repo-mod
       - id: go-mod-tidy
 

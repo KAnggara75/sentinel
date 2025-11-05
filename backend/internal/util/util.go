@@ -14,3 +14,15 @@
  */
 
 package util
+
+import "crypto/rand"
+
+func GenerateRandomString(n int) string {
+	const letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	b := make([]byte, n)
+	_, _ = rand.Read(b)
+	for i := range b {
+		b[i] = letters[int(b[i])%len(letters)]
+	}
+	return string(b)
+}

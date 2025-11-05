@@ -14,3 +14,30 @@
  */
 
 package http
+
+import (
+	"github.com/gofiber/fiber/v3"
+
+	"github.com/KAnggara75/sentinel/backend/internal/config"
+	"github.com/KAnggara75/sentinel/backend/internal/delivery/http/middleware"
+	"github.com/KAnggara75/sentinel/backend/internal/service"
+)
+
+func NewServer(cfg *config.Config) *fiber.App {
+	app := fiber.New(fiber.Config{
+		AppName: "Sentinel",
+	})
+
+	authService := service.NewAuthService(cfg)
+
+	app.Get("/health", func(c fiber.Ctx) error {
+		return c.JSON(fiber.Map{"status": "ok"})
+	})
+
+	api := app.Group("/api")
+
+	api.Post("/login", authService.Login)
+	api.Post("/logout", middleware.Protected(cfg.JWTSecret), authService.Logout)
+
+	return app
+}
