@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 KAnggara75
+ * Copyright (c) ${YEAR} KAnggara75
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -8,9 +8,9 @@
  *
  * See <https://www.gnu.org/licenses/gpl-3.0.html>.
  *
- * @author KAnggara75 on Thu 06/11/25 05.52
- * @project backend sentinel
- * https://github.com/KAnggara75/sentinel/tree/main/backend/cmd/sentinel
+ * @author KAnggara75 on ${DAY_NAME_SHORT} ${DATE} ${TIME}
+ * @project ${PROJECT_NAME} ${GO_PACKAGE_NAME}
+ * https://github.com/KAnggara75/sentinel/tree/main/backend/${DIR_PATH}
  */
 
-package sentinel
+package ${GO_PACKAGE_NAME}
