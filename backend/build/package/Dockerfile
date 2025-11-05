@@ -1,14 +1,28 @@
+# ---------- STAGE 1: Builder ----------
 FROM golang:1.25.3-trixie AS builder
-WORKDIR /build
 
-COPY go.mod go.sum ./
+# set module cache & build dir
+WORKDIR /app
+
+# copy dan download dependency dulu biar cache efisien
+COPY backend/go.mod backend/go.sum ./
 RUN go mod download && go mod verify
 
-COPY . .
-RUN go build -x -ldflags="-w -s" -trimpath -o sentinel ./cmd/sentinel
+# copy seluruh source code backend
+COPY backend/ .
 
-FROM gcr.io/distroless/base-debian12:nonroot
-COPY --from=builder /build/sentinel /app
-USER nonroot:nonroot
+# build binary tanpa simbol debug & dengan path yang rapih
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -trimpath -ldflags="-s -w" -o /sentinel ./cmd/sentinel
+
+# ---------- STAGE 2: Runtime ----------
+FROM gcr.io/distroless/static-debian12:nonroot
+
+# copy binary dari builder
+COPY --from=builder /sentinel /app/sentinel
+
+# set working dir & port
+WORKDIR /app
 EXPOSE 8080
-ENTRYPOINT ["/app"]
+
+USER nonroot:nonroot
+ENTRYPOINT ["/app/sentinel"]
